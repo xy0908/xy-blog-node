@@ -32,3 +32,23 @@ exports.wellKnownSaying = async  (req,res)=>{
     ];
     res.send(arr[Math.floor(Math.random() * arr.length )])
 }
+
+
+exports.carousel = async  (req,res)=>{
+    let url = "http://localhost:1212/carousel/";
+
+    res.send([
+        {
+            img:url+"1.jpg",
+            title:"Vue3混合组件库搭建实战篇"
+        },
+        {
+            img:url+"222.png",
+            title:"Vue3混合组件库搭建实战篇"
+        },
+        {
+            img:url+"777.png",
+            title:"Vue3混合组件库搭建实战篇"
+        }
+    ])
+}

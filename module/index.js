@@ -33,10 +33,9 @@ exports.wellKnownSaying = async  (req,res)=>{
     res.send(arr[Math.floor(Math.random() * arr.length )])
 }
 
-
+// 首页轮播图片
 exports.carousel = async  (req,res)=>{
     let url = "http://localhost:1212/carousel/";
-
     res.send([
         {
             img:url+"1.jpg",
@@ -51,4 +50,23 @@ exports.carousel = async  (req,res)=>{
             title:"Vue3混合组件库搭建实战篇"
         }
     ])
+}
+
+// 首页图片区
+exports.picture = async (req,res)=>{
+    let url = "http://localhost:1212/picture/index";
+    res.send([
+        url+"/1.jpg",
+        url+"/2.jpg"
+    ])
+}
+
+// 博客信息
+exports.bolgInfo = async (req,res)=>{
+    // 1.图片  2.文章  3.留言
+    res.send({
+        backgroundImg:"http://localhost:1212/bolgInfo/bg.jpg",
+        article:11,
+        message:20
+    })
 }

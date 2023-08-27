@@ -70,3 +70,206 @@ exports.bolgInfo = async (req,res)=>{
         message:20
     })
 }
+
+// 最新动态
+exports.newTrends = async (req,res)=>{
+    res.send([
+        {
+            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
+            time:"2023-08-25 15:11:01"
+        },
+        {
+            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
+            time:"2023-08-25 15:11:01"
+        },
+        {
+            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
+            time:"2023-08-25 15:11:01"
+        },
+        {
+            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
+            time:"2023-08-25 15:11:01"
+        },
+    ])
+}
+
+// 推荐书籍
+exports.recommendedBooks = async (req,res)=>{
+    let url = "http://localhost:1212/recommendedBooks/";
+
+    res.send([
+        {
+            img: url + "1.jpg",
+            title:"JavaScript高级程序设计(第四版)",
+            time:"2023-7-1"
+        },
+        {
+            img: url + "2.jpg",
+            title:"css选择器世界",
+            time:"2023-7-1"
+        },
+        {
+            img: url + "3.jpg",
+            title:"Node.js开发实战",
+            time:"2023-7-1"
+        },
+    ])
+}
+
+// 登录页面显示
+exports.loginDisplay = async  (req,res)=>{
+    let url = "http://localhost:1212/loginDisplay/";
+
+    res.send(
+        {
+            background:url + "background.jpg",
+            photo:url + "photo.jpg"
+        }
+    )
+}
+
+// 首页文章
+exports.indexArticle = async  (req,res)=>{
+    res.send([
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        },
+        {
+            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            table: ["前端"],
+            title: "Vue3混合组件库搭建",
+            message: "手把手教你搭建组件库",
+            time: {
+                icon: "iconfont icon-rili",
+                text: "2022.09.08"
+            },
+            author: {
+                icon: "iconfont icon-denglu-copy",
+                text: "白给崽小羊"
+            }
+        }
+    ])
+}

@@ -4,7 +4,11 @@ const {
     wellKnownSaying,
     carousel,
     picture,
-    bolgInfo
+    bolgInfo,
+    newTrends,
+    recommendedBooks,
+    loginDisplay,
+    indexArticle
 } = require("../module/index")
 
 // 首页名言
@@ -19,5 +23,16 @@ router.get("/picture",picture)
 // 博客信息
 router.get("/bolgInfo",bolgInfo)
 
+// 最新动态
+router.get("/newTrends",newTrends)
+
+// 推荐书籍
+router.get("/recommendedBooks",recommendedBooks)
+
+// 登录页面显示
+router.get("/loginDisplay",loginDisplay)
+
+// 首页文章
+router.get("/indexArticle",indexArticle)
 
 module.exports = router

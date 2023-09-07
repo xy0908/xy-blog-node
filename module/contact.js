@@ -54,5 +54,5 @@ exports.email = async (req,res)=>{
 
 // 背景图片
 exports.bg = async (req,res)=>{
-    res.send("http://localhost:1212/contact/bg.png")
+    res.send("http://localhost:1212/images/contact/bg.png")
 }

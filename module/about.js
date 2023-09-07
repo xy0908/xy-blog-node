@@ -1,6 +1,6 @@
 // 关于我 背景图片
 exports.aboutInfo = async (req,res)=>{
-    let url = "http://localhost:1212/about/";
+    let url = "http://localhost:1212/images/about/";
 
     res.send([
         {

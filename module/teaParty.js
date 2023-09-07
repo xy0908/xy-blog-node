@@ -1,34 +1,47 @@
+const fs = require("fs");
+const path = require("path");
+
+//静态文章资源目录
+let url = path.resolve(__dirname, "../public/article");
+
+// 获取文章标签目录名称
+let directory = fs.readdirSync(url);
+
+
 // 标签
-exports.table = async  (req,res)=>{
-    res.send([
-        {
-            text:"全部",
-            isActivation:true
-        },
-        {
-            text:"前端",
-            isActivation:false
-        },
-        {
-            text:"后端",
-            isActivation:false
-        },
-        {
-            text:"微信小程序",
-            isActivation:false
-        },
-        {
-            text:"日常",
-            isActivation:false
-        }
-    ])
+exports.table = async (req, res) => {
+    let table = [];
+    directory.forEach(item => {
+        table.push({
+            text: item,
+            isActivation: false
+        })
+    })
+    table.unshift({
+        text: "全部",
+        isActivation: true
+    })
+    res.send(table)
 }
 
 // 查找文章
-exports.seekArticle = async (req,res)=>{
+exports.seekArticle = async (req, res) => {
+    let url = "http://localhost:1212/images/loginDisplay/";
+
+    // 获取所有目录下的目录;
+    // let directory = fs.readdirSync(url);
+    // let a = fs.readdirSync(url);
+    // console.log(a);
+    // console.log(directory);
+    // directory.forEach(item => {
+    //     // let a = fs.readdirSync(url + "/" + item);
+    //     console.log(url + "/" + item);
+    // })
+
+
     res.send([
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -42,7 +55,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -56,7 +69,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -70,7 +83,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -84,7 +97,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -98,7 +111,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -112,7 +125,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -126,7 +139,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -140,7 +153,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -154,7 +167,7 @@ exports.seekArticle = async (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",

@@ -35,7 +35,7 @@ exports.wellKnownSaying = async  (req,res)=>{
 
 // 首页轮播图片
 exports.carousel = async  (req,res)=>{
-    let url = "http://localhost:1212/carousel/";
+    let url = "http://localhost:1212/images/carousel/";
     res.send([
         {
             img:url+"1.jpg",
@@ -54,7 +54,7 @@ exports.carousel = async  (req,res)=>{
 
 // 首页图片区
 exports.picture = async (req,res)=>{
-    let url = "http://localhost:1212/picture/index";
+    let url = "http://localhost:1212/images/picture/index";
     res.send([
         url+"/1.jpg",
         url+"/2.jpg"
@@ -65,7 +65,7 @@ exports.picture = async (req,res)=>{
 exports.bolgInfo = async (req,res)=>{
     // 1.图片  2.文章  3.留言
     res.send({
-        backgroundImg:"http://localhost:1212/bolgInfo/bg.jpg",
+        backgroundImg:"http://localhost:1212/images/bolgInfo/bg.jpg",
         article:11,
         message:20
     })
@@ -95,7 +95,7 @@ exports.newTrends = async (req,res)=>{
 
 // 推荐书籍
 exports.recommendedBooks = async (req,res)=>{
-    let url = "http://localhost:1212/recommendedBooks/";
+    let url = "http://localhost:1212/images/recommendedBooks/";
 
     res.send([
         {
@@ -118,7 +118,7 @@ exports.recommendedBooks = async (req,res)=>{
 
 // 登录页面显示
 exports.loginDisplay = async  (req,res)=>{
-    let url = "http://localhost:1212/loginDisplay/";
+    let url = "http://localhost:1212/images/loginDisplay/";
 
     res.send(
         {
@@ -130,9 +130,10 @@ exports.loginDisplay = async  (req,res)=>{
 
 // 首页文章
 exports.indexArticle = async  (req,res)=>{
+    let url = "http://localhost:1212/images/loginDisplay/"
     res.send([
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages:  url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -146,7 +147,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -160,7 +161,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -174,7 +175,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -188,7 +189,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -202,7 +203,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -216,7 +217,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -230,7 +231,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -244,7 +245,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",
@@ -258,7 +259,7 @@ exports.indexArticle = async  (req,res)=>{
             }
         },
         {
-            backgroundImages: "http://localhost:1212/loginDisplay/background.jpg",
+            backgroundImages: url + "background.jpg",
             table: ["前端"],
             title: "Vue3混合组件库搭建",
             message: "手把手教你搭建组件库",

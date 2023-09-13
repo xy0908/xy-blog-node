@@ -7,9 +7,9 @@ const axios = require("axios")
 // }
 
 // 获取音乐的id 我的歌单
-async function getAllMusicId(id, number) {
+async function getAllMusicId() {
     let arr = []
-    let {data} = await axios.get(`http://localhost:3000/playlist/detail?id=8710410919`)
+    let { data } = await axios.get(`http://localhost:3000/playlist/detail?id=8710410919`)
 
     data.playlist.tracks.forEach(item => {
         arr.push({
@@ -26,11 +26,11 @@ async function getAllMusicId(id, number) {
 async function getAllMusicUrl(allMusicId) {
     let arr = []
     for (const key of allMusicId) {
-        let {data} = await axios.get(`http://localhost:3000/song/url?id=${key.id}`);
+        let { data } = await axios.get(`http://localhost:3000/song/url?id=${key.id}`);
         arr.push({
             name: key.name,
             url: data.data[0].url,
-            picUrl:key.picUrl
+            picUrl: key.picUrl
         })
     }
     return arr

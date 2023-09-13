@@ -203,7 +203,7 @@ exports.seeArticle = async (req, res) => {
  * @param { string } _id_ 需要增加浏览器的文章id值
  * @param { number } 
 */
-exports.addBrowse = async (req, res) => {
+exports.addBrowse = async (req) => {
     let { _id_ } = req.body;
     await mongoArticle.findByIdAndUpdate(_id_, { $inc: { browse: 1 } });
 }

@@ -5,7 +5,9 @@ const path = require('path');
  * @param { string } imgUrl 存储文章封面图片的路径
  * @param { string } fileUrl 存储文章文件的路径
 */
+// eslint-disable-next-line no-undef
 const imgUrl = path.resolve(__dirname, "../../public/article/img");
+// eslint-disable-next-line no-undef
 const fileUrl = path.resolve(__dirname, "../../public/article/file");
 
 /**

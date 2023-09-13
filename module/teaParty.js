@@ -1,12 +1,4 @@
-const fs = require("fs");
-const path = require("path");
 const mongoType = require("../mongodb/type")
-
-//静态文章资源目录
-let url = path.resolve(__dirname, "../public/article");
-
-// 获取文章标签目录名称
-let directory = fs.readdirSync(url);
 
 
 /**

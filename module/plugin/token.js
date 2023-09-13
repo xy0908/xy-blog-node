@@ -8,7 +8,7 @@ exports.createToken = (value) => {
 
 // 解析token
 exports.verToken = (token) => {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     jwt.verify(token, privateKey, (err, data) => {
       if (!data) {
         res(false)

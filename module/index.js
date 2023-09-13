@@ -1,4 +1,5 @@
 const mongoArticle = require("../mongodb/article");
+const mongoNewTrends = require("../mongodb/newTrends");
 const fs = require("fs")
 
 /**
@@ -92,24 +93,16 @@ exports.bolgInfo = async (req, res) => {
  * @description 最新动态
 */
 exports.newTrends = async (req, res) => {
-    res.send([
-        {
-            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
-            time: "2023-08-25 15:11:01"
-        },
-        {
-            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
-            time: "2023-08-25 15:11:01"
-        },
-        {
-            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
-            time: "2023-08-25 15:11:01"
-        },
-        {
-            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
-            time: "2023-08-25 15:11:01"
-        },
-    ])
+    let mongoData = await mongoNewTrends.find();
+    let filterData = [];
+
+    mongoData.forEach(i => {
+        filterData.push({
+            title: i.trends,
+            time: i.time
+        })
+    })
+    res.send(filterData)
 }
 
 /**

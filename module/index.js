@@ -1,5 +1,11 @@
-// 首页名言
-exports.wellKnownSaying = async  (req,res)=>{
+const mongoArticle = require("../mongodb/article");
+const fs = require("fs")
+
+/**
+ * @function
+ * @description 首页名言
+*/
+exports.wellKnownSaying = async (req, res) => {
     const arr = [
         "见微知著，识人心志",
         "星辰虽小,难掩其明",
@@ -30,247 +36,165 @@ exports.wellKnownSaying = async  (req,res)=>{
         "避其锋芒权且忍让",
         "汝若包藏祸心，顷刻昭于清明",
     ];
-    res.send(arr[Math.floor(Math.random() * arr.length )])
+    res.send(arr[Math.floor(Math.random() * arr.length)])
 }
 
-// 首页轮播图片
-exports.carousel = async  (req,res)=>{
+/**
+ * @function
+ * @description 首页轮播图片
+*/
+exports.carousel = async (req, res) => {
     let url = "http://localhost:1212/images/carousel/";
     res.send([
         {
-            img:url+"1.jpg",
-            title:"Vue3混合组件库搭建实战篇"
+            img: url + "1.jpg",
+            title: "Vue3混合组件库搭建实战篇"
         },
         {
-            img:url+"222.png",
-            title:"Vue3混合组件库搭建实战篇"
+            img: url + "222.png",
+            title: "Vue3混合组件库搭建实战篇"
         },
         {
-            img:url+"777.png",
-            title:"Vue3混合组件库搭建实战篇"
+            img: url + "777.png",
+            title: "Vue3混合组件库搭建实战篇"
         }
     ])
 }
 
-// 首页图片区
-exports.picture = async (req,res)=>{
+/**
+ * @function
+ * @description 首页图片区
+*/
+exports.picture = async (req, res) => {
     let url = "http://localhost:1212/images/picture/index";
     res.send([
-        url+"/1.jpg",
-        url+"/2.jpg"
+        url + "/1.jpg",
+        url + "/2.jpg"
     ])
 }
 
-// 博客信息
-exports.bolgInfo = async (req,res)=>{
+
+/**
+ * @function
+ * @description 博客信息
+*/
+exports.bolgInfo = async (req, res) => {
     // 1.图片  2.文章  3.留言
     res.send({
-        backgroundImg:"http://localhost:1212/images/bolgInfo/bg.jpg",
-        article:11,
-        message:20
+        backgroundImg: "http://localhost:1212/images/bolgInfo/bg.jpg",
+        article: 11,
+        message: 20
     })
 }
 
-// 最新动态
-exports.newTrends = async (req,res)=>{
+/**
+ * @function
+ * @description 最新动态
+*/
+exports.newTrends = async (req, res) => {
     res.send([
         {
-            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
-            time:"2023-08-25 15:11:01"
+            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
+            time: "2023-08-25 15:11:01"
         },
         {
-            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
-            time:"2023-08-25 15:11:01"
+            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
+            time: "2023-08-25 15:11:01"
         },
         {
-            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
-            time:"2023-08-25 15:11:01"
+            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
+            time: "2023-08-25 15:11:01"
         },
         {
-            title:"修改了vue3混合组件库搭建时候遇见的一些问题",
-            time:"2023-08-25 15:11:01"
+            title: "修改了vue3混合组件库搭建时候遇见的一些问题",
+            time: "2023-08-25 15:11:01"
         },
     ])
 }
 
-// 推荐书籍
-exports.recommendedBooks = async (req,res)=>{
+/**
+ * @function
+ * @description 推荐书籍
+*/
+exports.recommendedBooks = async (req, res) => {
     let url = "http://localhost:1212/images/recommendedBooks/";
 
     res.send([
         {
             img: url + "1.jpg",
-            title:"JavaScript高级程序设计(第四版)",
-            time:"2023-7-1"
+            title: "JavaScript高级程序设计(第四版)",
+            time: "2023-7-1"
         },
         {
             img: url + "2.jpg",
-            title:"css选择器世界",
-            time:"2023-7-1"
+            title: "css选择器世界",
+            time: "2023-7-1"
         },
         {
             img: url + "3.jpg",
-            title:"Node.js开发实战",
-            time:"2023-7-1"
+            title: "Node.js开发实战",
+            time: "2023-7-1"
         },
     ])
 }
 
-// 登录页面显示
-exports.loginDisplay = async  (req,res)=>{
+/**
+ * @function
+ * @description 登录页面显示
+*/
+exports.loginDisplay = async (req, res) => {
     let url = "http://localhost:1212/images/loginDisplay/";
 
     res.send(
         {
-            background:url + "background.jpg",
-            photo:url + "photo.jpg"
+            background: url + "background.jpg",
+            photo: url + "photo.jpg"
         }
     )
 }
 
-// 首页文章
-exports.indexArticle = async  (req,res)=>{
-    let url = "http://localhost:1212/images/loginDisplay/"
-    res.send([
-        {
-            backgroundImages:  url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
+/**
+ * @function
+ * @description 首页文章
+ * 
+ * @param { any } mongoData mongoArticle数据库的所有文章数据
+ * @param { any } filterData 过滤后的数据 只要前10个文章
+*/
+exports.indexArticle = async (req, res) => {
+    let mongoData = await mongoArticle.find();
+    let filterData = [];
+
+    mongoData.forEach(i => {
+        if (filterData.length !== 10) {
+            filterData.push({
+                backgroundImages: `http://localhost:1212${i.img.replace(/\\/g, '/')}`,
+                table: [`${i.type}`],
+                title: i.title,
+                message: i.describe,
+                time: {
+                    icon: "iconfont icon-rili",
+                    text: i.time
+                },
+                author: {
+                    icon: "iconfont icon-denglu-copy",
+                    text: i.author
+                },
+                file: i.file,
+                _id: i._id
+            })
         }
-    ])
+    })
+
+    res.send({ code: 1, value: "文章获取成功", data: filterData })
+}
+
+
+/**
+ * @function
+ * @description 查看文章
+*/
+exports.seeArticle = async (req, res) => {
+    let { value } = req.body
+    let data = fs.readFileSync("./public/" + value, "utf-8")
+    res.send({ code: 1, value: "获取成功", data: data })
 }

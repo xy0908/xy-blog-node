@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const mongoType = require("../mongodb/type")
 
 //静态文章资源目录
 let url = path.resolve(__dirname, "../public/article");
@@ -8,35 +9,35 @@ let url = path.resolve(__dirname, "../public/article");
 let directory = fs.readdirSync(url);
 
 
-// 标签
+/**
+ * @function
+ * @description 前端标签
+ * 
+ * @param { Array<string> } databaseType 数据库的文章类型
+ * @param { Array<string> } filterData 过滤后的数据 返回给前端的数据
+*/
 exports.table = async (req, res) => {
-    let table = [];
-    directory.forEach(item => {
-        table.push({
-            text: item,
+    let databaseType = await mongoType.find();
+    let filterData = [];
+
+    databaseType.forEach(i => {
+        filterData.push({
+            text: i.type,
             isActivation: false
         })
     })
-    table.unshift({
+
+    filterData.unshift({
         text: "全部",
         isActivation: true
     })
-    res.send(table)
+
+    res.send(filterData)
 }
 
 // 查找文章
 exports.seekArticle = async (req, res) => {
     let url = "http://localhost:1212/images/loginDisplay/";
-
-    // 获取所有目录下的目录;
-    // let directory = fs.readdirSync(url);
-    // let a = fs.readdirSync(url);
-    // console.log(a);
-    // console.log(directory);
-    // directory.forEach(item => {
-    //     // let a = fs.readdirSync(url + "/" + item);
-    //     console.log(url + "/" + item);
-    // })
 
 
     res.send([

@@ -172,6 +172,10 @@ exports.indexArticle = async (req, res) => {
                     icon: "iconfont icon-denglu-copy",
                     text: i.author
                 },
+                browse: {
+                    icon: "iconfont icon-liulan",
+                    text: i.browse
+                },
                 file: i.file,
                 _id: i._id
             })
@@ -190,4 +194,16 @@ exports.seeArticle = async (req, res) => {
     let { value } = req.body
     let data = fs.readFileSync("./public/" + value, "utf-8")
     res.send({ code: 1, value: "获取成功", data: data })
+}
+
+/**
+ * @function
+ * @description 文章浏览量+1;
+ * 
+ * @param { string } _id_ 需要增加浏览器的文章id值
+ * @param { number } 
+*/
+exports.addBrowse = async (req, res) => {
+    let { _id_ } = req.body;
+    await mongoArticle.findByIdAndUpdate(_id_, { $inc: { browse: 1 } });
 }

@@ -158,8 +158,8 @@ exports.storeFile = async (req, res) => {
  * @description 提交数据到数据库中
 */
 exports.submitToDataBank = async (req, res) => {
-  let { type, title, describe, author, img, file, time } = req.body;
-  let result = await mongoArticle.create({ type, title, describe, author, img, file, time });
+  let { type, title, describe, author, img, file, time, browse } = req.body;
+  let result = await mongoArticle.create({ type, title, describe, author, img, file, time, browse });
   if (result) {
     filterData("img", "./public/article/img")
     filterData("file", "./public/article/file")

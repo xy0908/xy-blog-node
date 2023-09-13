@@ -9,7 +9,8 @@ const {
     recommendedBooks,
     loginDisplay,
     indexArticle,
-    seeArticle
+    seeArticle,
+    addBrowse
 } = require("../module/index")
 
 // 首页名言
@@ -38,5 +39,8 @@ router.get("/indexArticle", indexArticle);
 
 // 查看文章
 router.post("/seeArticle", seeArticle)
+
+// 文章浏览量+1
+router.post("/addBrowse", addBrowse)
 
 module.exports = router

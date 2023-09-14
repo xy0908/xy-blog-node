@@ -45,21 +45,19 @@ exports.wellKnownSaying = async (req, res) => {
  * @description 首页轮播图片
 */
 exports.carousel = async (req, res) => {
-    let url = "http://localhost:1212/images/carousel/";
-    res.send([
-        {
-            img: url + "1.jpg",
-            title: "Vue3混合组件库搭建实战篇"
-        },
-        {
-            img: url + "222.png",
-            title: "Vue3混合组件库搭建实战篇"
-        },
-        {
-            img: url + "777.png",
-            title: "Vue3混合组件库搭建实战篇"
-        }
-    ])
+    let mongoData = await mongoArticle.find({ isRecommend: true });
+    let filterData = [];
+
+    mongoData.forEach(i => {
+        filterData.push({
+            title: i.title,
+            img: `http://localhost:1212${i.img.replace(/\\/g, '/')}`,
+            file: i.file
+        })
+    })
+
+
+    res.send(filterData)
 }
 
 /**

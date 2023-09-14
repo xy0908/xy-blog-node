@@ -6,10 +6,10 @@ const {
 } = require("../module/teaParty")
 
 // 标签
-router.get("/table",table)
+router.get("/table", table)
 
 // 查找文章
-router.get("/seekArticle",seekArticle)
+router.post("/seekArticle", seekArticle)
 
 
 module.exports = router

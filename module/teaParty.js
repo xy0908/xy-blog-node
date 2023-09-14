@@ -1,4 +1,5 @@
-const mongoType = require("../mongodb/type")
+const mongoType = require("../mongodb/type");
+const mongoArticle = require("../mongodb/article");
 
 
 /**
@@ -28,150 +29,66 @@ exports.table = async (req, res) => {
 }
 
 // 查找文章
+/**
+ * @function
+ * @description 获取文章 
+ * 
+ * @param { string } key 前端传递的key值 跟key值查询数据
+ * @param { any } filterData 过滤后的数据
+*/
 exports.seekArticle = async (req, res) => {
-    let url = "http://localhost:1212/images/loginDisplay/";
+    let { key } = req.body;
+    let filterData = [];
 
+    if (key === "全部") {
+        let mongoData = await mongoArticle.find();
+        mongoData.forEach(i => {
+            filterData.push({
+                backgroundImages: `http://localhost:1212${i.img.replace(/\\/g, '/')}`,
+                table: [`${i.type}`],
+                title: i.title,
+                message: i.describe,
+                time: {
+                    icon: "iconfont icon-rili",
+                    text: i.time
+                },
+                author: {
+                    icon: "iconfont icon-denglu-copy",
+                    text: i.author
+                },
+                browse: {
+                    icon: "iconfont icon-liulan",
+                    text: i.browse
+                },
+                file: i.file,
+                _id: i._id
+            })
+        })
+    } else {
+        let data = await mongoArticle.find({ type: key });
+        data.forEach(i => {
+            filterData.push({
+                backgroundImages: `http://localhost:1212${i.img.replace(/\\/g, '/')}`,
+                table: [`${i.type}`],
+                title: i.title,
+                message: i.describe,
+                time: {
+                    icon: "iconfont icon-rili",
+                    text: i.time
+                },
+                author: {
+                    icon: "iconfont icon-denglu-copy",
+                    text: i.author
+                },
+                browse: {
+                    icon: "iconfont icon-liulan",
+                    text: i.browse
+                },
+                file: i.file,
+                _id: i._id
+            })
+        })
+    }
 
-    res.send([
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        },
-        {
-            backgroundImages: url + "background.jpg",
-            table: ["前端"],
-            title: "Vue3混合组件库搭建",
-            message: "手把手教你搭建组件库",
-            time: {
-                icon: "iconfont icon-rili",
-                text: "2022.09.08"
-            },
-            author: {
-                icon: "iconfont icon-denglu-copy",
-                text: "白给崽小羊"
-            }
-        }
-    ])
+    res.send({ code: 1, value: "获取成功", data: filterData })
 }

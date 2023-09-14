@@ -11,7 +11,8 @@ const {
   deleteArticle,
   publishType,
   getType,
-  deleteType
+  deleteType,
+  recommendArticle
 } = require("../module/admin");
 
 // 发布文章的背景图片
@@ -46,5 +47,8 @@ router.get("/getType", getType);
 
 // 删除文章类型
 router.post("/deleteType", deleteType)
+
+// 推荐文章
+router.post("/recommendArticle", recommendArticle)
 
 module.exports = router

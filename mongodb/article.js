@@ -11,7 +11,8 @@ module.exports = mongoose.model(
       img: String,   // 文章封面
       file: String,  // 文章源文件
       time: String,  // 文章发布时间
-      browse: Number // 浏览量
+      browse: Number, // 浏览量
+      isRecommend: Boolean // 是否推荐
     },
     {
       versionKey: false

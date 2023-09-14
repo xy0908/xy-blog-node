@@ -177,7 +177,8 @@ exports.indexArticle = async (req, res) => {
                     text: i.browse
                 },
                 file: i.file,
-                _id: i._id
+                _id: i._id,
+                isRecommend: i.isRecommend
             })
         }
     })

@@ -244,3 +244,14 @@ exports.deleteType = async (req, res) => {
   await mongoType.deleteOne({ _id })
   res.send({ code: 1, value: "删除成功" })
 }
+
+
+/**
+ * @function
+ * @description 推荐文章
+*/
+exports.recommendArticle = async (req, res) => {
+  let { _id, recommend } = req.body;
+  await mongoArticle.findByIdAndUpdate(_id, { isRecommend: !recommend })
+  res.send({ code: 1 })
+}

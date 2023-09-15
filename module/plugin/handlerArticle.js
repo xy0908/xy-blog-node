@@ -9,6 +9,8 @@ const path = require('path');
 const imgUrl = path.resolve(__dirname, "../../public/article/img");
 // eslint-disable-next-line no-undef
 const fileUrl = path.resolve(__dirname, "../../public/article/file");
+// eslint-disable-next-line no-undef
+const booksUrl = path.resolve(__dirname, "../../public/recommendBooks")
 
 /**
  * @function
@@ -38,6 +40,22 @@ const storageFile = multer.diskStorage({
   }
 })
 
+
+/**
+ * @function
+ * @description 上传书籍封面
+*/
+const booksImg = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, booksUrl)
+  },
+  filename: function (req, file, cb) {
+    // console.log(Date.now() + file.originalname);
+    cb(null, Date.now() + file.originalname)
+  }
+})
+
 exports.uploadImg = multer({ storage: storageImg }).single("file")
 exports.uploadFile = multer({ storage: storageFile }).single("file")
+exports.uploadBooksImg = multer({ storage: booksImg }).single("file")
 

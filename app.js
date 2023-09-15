@@ -13,6 +13,7 @@ app.use("/contact", require("./routes/contact"));
 app.use("/music", require("./routes/music"))
 app.use("/admin", require("./routes/admin"))
 app.use("/newTrends", require("./routes/newTrends"));
+app.use("/recommendBooks", require("./routes/recommendBooks"))
 
 // 连接数据库
 require('./mongodb/index.js')

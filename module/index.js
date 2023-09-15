@@ -52,7 +52,8 @@ exports.carousel = async (req, res) => {
         filterData.push({
             title: i.title,
             img: `http://localhost:1212${i.img.replace(/\\/g, '/')}`,
-            file: i.file
+            file: i.file,
+            _id: i._id,
         })
     })
 

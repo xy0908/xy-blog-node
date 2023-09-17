@@ -1,5 +1,6 @@
 const mongoArticle = require("../mongodb/article");
 const mongoNewTrends = require("../mongodb/newTrends");
+const mongoRecommendBooks = require("../mongodb/recommendBooks");
 const fs = require("fs")
 
 /**
@@ -77,13 +78,33 @@ exports.picture = async (req, res) => {
 /**
  * @function
  * @description 博客信息
+ *
+ * @param { mongoArticle } articleData 数据库的所有文章
+ * @param { mongoNewTrends } newTrendsData 数据库的所有最新动态
+ * @param { mongoRecommendBooks } recommendBooksData 数据库的所有推荐的书籍
+ *
 */
 exports.bolgInfo = async (req, res) => {
-    // 1.图片  2.文章  3.留言
+    let articleData = await mongoArticle.find();
+    let newTrendsData = await  mongoNewTrends.find();
+    let recommendBooksData = await  mongoRecommendBooks.find();
+    
     res.send({
         backgroundImg: "http://localhost:1212/images/bolgInfo/bg.jpg",
-        article: 11,
-        message: 20
+        data:[
+            {
+                text:"文章",
+                num:articleData.length
+            },
+            {
+                text:"动态",
+                num:newTrendsData.length
+            },
+            {
+                text:"推荐书籍",
+                num:recommendBooksData.length
+            }
+        ]
     })
 }
 
@@ -104,31 +125,6 @@ exports.newTrends = async (req, res) => {
     res.send(filterData)
 }
 
-/**
- * @function
- * @description 推荐书籍
-*/
-exports.recommendedBooks = async (req, res) => {
-    let url = "http://localhost:1212/images/recommendedBooks/";
-
-    res.send([
-        {
-            img: url + "1.jpg",
-            title: "JavaScript高级程序设计(第四版)",
-            time: "2023-7-1"
-        },
-        {
-            img: url + "2.jpg",
-            title: "css选择器世界",
-            time: "2023-7-1"
-        },
-        {
-            img: url + "3.jpg",
-            title: "Node.js开发实战",
-            time: "2023-7-1"
-        },
-    ])
-}
 
 /**
  * @function
@@ -148,7 +144,7 @@ exports.loginDisplay = async (req, res) => {
 /**
  * @function
  * @description 首页文章
- * 
+ *
  * @param { any } mongoData mongoArticle数据库的所有文章数据
  * @param { any } filterData 过滤后的数据 只要前10个文章
 */
@@ -199,9 +195,8 @@ exports.seeArticle = async (req, res) => {
 /**
  * @function
  * @description 文章浏览量+1;
- * 
+ *
  * @param { string } _id_ 需要增加浏览器的文章id值
- * @param { number } 
 */
 exports.addBrowse = async (req) => {
     let { _id_ } = req.body;

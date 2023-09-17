@@ -6,7 +6,6 @@ const {
     picture,
     bolgInfo,
     newTrends,
-    recommendedBooks,
     loginDisplay,
     indexArticle,
     seeArticle,
@@ -27,9 +26,6 @@ router.get("/bolgInfo", bolgInfo);
 
 // 最新动态
 router.get("/newTrends", newTrends);
-
-// 推荐书籍
-router.get("/recommendedBooks", recommendedBooks);
 
 // 登录页面显示
 router.get("/loginDisplay", loginDisplay);

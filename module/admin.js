@@ -9,15 +9,15 @@ const { uploadImg, uploadFile } = require("../module/plugin/handlerArticle");
 /**
  * @function
  * @description 过滤数据
- * 
+ *
  * @param { string } handlerTarget 需要处理的目标
  * @param { string } url 操作目标的地址
- * 
+ *
  * @param { mongoArticle } mongoData 获取的数据库数据
  * @param { Array<string> } filterMongoData 获取数据库需要的目标数据
  * @param { Array<string> } localityAllData 本地文件数据
  * @param { Array<string> } deleteData 过滤出本地 需要删除的数据
- * 
+ *
 */
 async function filterData(handlerTarget, url) {
   let mongoData = await mongoArticle.find()
@@ -38,23 +38,14 @@ async function filterData(handlerTarget, url) {
 }
 
 
-
 /**
  * @function
- * @description 发布文章的背景图片
-*/
-exports.adminBackground = async (req, res) => {
-  res.send("http://localhost:1212/images/publishArticle/index.png");
-}
-
-/**
- * @function
- * 
+ *
  * @description 登录请求
- * 
+ *
  * @param { string } rootName 管理员账号 默认:admin
  * @param { string } rootPass 管理员密码 默认:xy123
- * 
+ *
  * @returns { code:number,value:string } 返回code值 和 加密后的token值
 */
 exports.logon = async (req, res) => {
@@ -171,7 +162,7 @@ exports.submitToDataBank = async (req, res) => {
 /**
  * @function
  * @description 获取所有文章
- * 
+ *
  * @param { any } data 所有文章的数据 返回给前端
 */
 exports.getArticle = async (req, res) => {
@@ -194,7 +185,7 @@ exports.deleteArticle = async (req, res) => {
 /**
  * @function
  * @description 发布文章类型
- * 
+ *
  * @param { string } type 前端传入的文章类型
  * @param { boolean } isExist 前端传入的文章类型是否存在
  * @param { Array<string> } databaseType 数据库的文章类型
@@ -226,7 +217,7 @@ exports.publishType = async (req, res) => {
 /**
  * @function
  * @description 获取文章类型
- * 
+ *
  * @param { Array<string> } databaseType 数据库的文章类型
 */
 exports.getType = async (req, res) => {
@@ -236,7 +227,7 @@ exports.getType = async (req, res) => {
 
 
 /**
- * @function 
+ * @function
  * @description 删除文章类型
 */
 exports.deleteType = async (req, res) => {

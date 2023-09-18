@@ -88,7 +88,7 @@ exports.bolgInfo = async (req, res) => {
     let articleData = await mongoArticle.find();
     let newTrendsData = await  mongoNewTrends.find();
     let recommendBooksData = await  mongoRecommendBooks.find();
-    
+
     res.send({
         backgroundImg: "http://localhost:1212/images/bolgInfo/bg.jpg",
         data:[

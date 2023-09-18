@@ -8,7 +8,6 @@ app.use(express.json());
 
 app.use("/index", require("./routes/index"));
 app.use("/teaParty", require("./routes/teaParty"));
-app.use("/about", require("./routes/about"));
 app.use("/contact", require("./routes/contact"));
 app.use("/music", require("./routes/music"))
 app.use("/admin", require("./routes/admin"))

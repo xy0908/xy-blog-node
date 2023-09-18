@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const {
-  adminBackground,
   logon,
   automaticLogon,
   storeImg,
@@ -15,8 +14,6 @@ const {
   recommendArticle
 } = require("../module/admin");
 
-// 发布文章的背景图片
-router.get("/adminBackground", adminBackground);
 
 // 登录
 router.post("/logon", logon);
